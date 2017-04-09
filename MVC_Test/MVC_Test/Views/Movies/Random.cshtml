@@ -1,0 +1,42 @@
+﻿@*@model MVC_Test.Models.Movie*@
+@model MVC_Test.ViewModels.RandomMovieViewModel
+@ViewData["Movie"]
+@{
+    ViewBag.Title = "Random Movie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h2>RANDOM MOVIE TIME!</h2>
+<body>
+    The Movie:@Model.Movie.Name is a great movie about: @Model.Movie.Description
+    The following people currently have this movie:
+</body>*@
+
+@{
+    var className = Model.Customers.Count > 5 ? "popular" : null;
+    if (className != "popular")
+    {
+        className = "unpopular";
+    };
+
+}
+<h2 class="@className">@Model.Movie.Name</h2>
+   
+@if (Model.Customers.Count == 0)
+{
+    <text>No One has rented this movie</text>
+}
+else
+{
+    <ul>
+        @foreach (var customer in Model.Customers)
+        {
+            <li>@customer.Name</li>
+        }
+    </ul>
+}
+
+
+    @*The Movie:@Model.Name is a great movie about: @Model.Description*@
+
+
