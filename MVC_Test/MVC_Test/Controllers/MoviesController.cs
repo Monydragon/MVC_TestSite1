@@ -117,6 +117,7 @@ namespace MVC_Test.Controllers
             {
                 var existingMovie = _context.Movies.Single(m => m.Id == movie.Id);
                 existingMovie.Name = movie.Name;
+                existingMovie.Description = movie.Description;
                 existingMovie.GenreId = movie.GenreId;
                 existingMovie.StockAvailable = movie.StockAvailable;
                 existingMovie.ReleaseDate = movie.ReleaseDate;
